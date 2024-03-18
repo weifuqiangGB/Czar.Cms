@@ -183,7 +183,7 @@ namespace Czar.Cms.Services
             model.Password = AESEncryptHelper.Encode(model.Password.Trim(), CzarCmsKeys.AesEncryptKeys);
             model.UserName = model.UserName.Trim();
             string conditions = $"select * from {nameof(Manager)} where IsDelete=0 ";//未删除的
-            conditions += $"and (UserName = @UserName or Mobile =@UserName or Email =@UserName) and Password=@Password";
+            conditions += $"and (UserName = @UserName or Mobile =@UserName or Email =@UserName)";
             var manager = await _repository.GetAsync(conditions, model);
             if (manager != null)
             {

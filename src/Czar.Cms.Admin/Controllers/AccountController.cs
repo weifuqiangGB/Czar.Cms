@@ -36,7 +36,7 @@ namespace Czar.Cms.Admin.Controllers
         {
             return View();
         }
-
+        //ValidateAntiForgeryToken 验证服务器请求是否被篡改
         [HttpPost, ValidateAntiForgeryToken, Route("Account/SignIn")]
         public async Task<string> SignInAsync(LoginModel model)
         {
